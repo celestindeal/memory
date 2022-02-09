@@ -1,6 +1,6 @@
 ﻿namespace meory
 {
-    partial class Form1
+    partial class Memory
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -28,13 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.label_titre = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // label_titre
+            // 
+            this.label_titre.AutoSize = true;
+            this.label_titre.Location = new System.Drawing.Point(151, 58);
+            this.label_titre.Name = "label_titre";
+            this.label_titre.Size = new System.Drawing.Size(28, 13);
+            this.label_titre.TabIndex = 0;
+            this.label_titre.Text = "Titre";
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1108, 591);
+            this.Controls.Add(this.label_titre);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Label label_titre;
     }
 }
 

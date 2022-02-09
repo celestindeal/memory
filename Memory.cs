@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace meory
 {
-    public partial class Form1 : Form
+    public partial class Memory : Form
     {
-        public Form1()
+        public Memory()
         {
             InitializeComponent();
         }
