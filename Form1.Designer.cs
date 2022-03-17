@@ -37,7 +37,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button_distribuer = new System.Windows.Forms.Button();
             this.ilSabotDeCartes = new System.Windows.Forms.ImageList(this.components);
-            this.Test = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -60,7 +59,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 112F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 189F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(710, 189);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -157,22 +156,11 @@
             this.ilSabotDeCartes.Images.SetKeyName(40, "Taureau.jpg");
             this.ilSabotDeCartes.Images.SetKeyName(41, "Vache.jpg");
             // 
-            // Test
-            // 
-            this.Test.Location = new System.Drawing.Point(241, 322);
-            this.Test.Name = "Test";
-            this.Test.Size = new System.Drawing.Size(150, 39);
-            this.Test.TabIndex = 3;
-            this.Test.Text = "Text";
-            this.Test.UseVisualStyleBackColor = true;
-            this.Test.Click += new System.EventHandler(this.btn_Test);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Test);
             this.Controls.Add(this.button_distribuer);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
@@ -195,7 +183,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button_distribuer;
         private System.Windows.Forms.ImageList ilSabotDeCartes;
-        private System.Windows.Forms.Button Test;
     }
 }
 
