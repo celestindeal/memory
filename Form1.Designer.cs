@@ -35,23 +35,14 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button_distribuer = new System.Windows.Forms.Button();
             this.ilSabotDeCartes = new System.Windows.Forms.ImageList(this.components);
-            this.pb_Recherche = new System.Windows.Forms.PictureBox();
-            this.btn_Jouer = new System.Windows.Forms.Button();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.bp_retourne = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Recherche)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -61,21 +52,16 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox8, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox7, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox6, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox5, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox4, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox3, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(27, 20);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 191F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 189F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(710, 382);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(710, 189);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // pictureBox4
@@ -113,6 +99,16 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pb_01);
+            // 
+            // button_distribuer
+            // 
+            this.button_distribuer.Location = new System.Drawing.Point(85, 322);
+            this.button_distribuer.Name = "button_distribuer";
+            this.button_distribuer.Size = new System.Drawing.Size(150, 39);
+            this.button_distribuer.TabIndex = 2;
+            this.button_distribuer.Text = "Distribuer";
+            this.button_distribuer.UseVisualStyleBackColor = true;
+            this.button_distribuer.Click += new System.EventHandler(this.btn_Distribuer);
             // 
             // ilSabotDeCartes
             // 
@@ -161,63 +157,23 @@
             this.ilSabotDeCartes.Images.SetKeyName(40, "Taureau.jpg");
             this.ilSabotDeCartes.Images.SetKeyName(41, "Vache.jpg");
             // 
-            // pb_Recherche
+            // bp_retourne
             // 
-            this.pb_Recherche.Location = new System.Drawing.Point(786, 131);
-            this.pb_Recherche.Name = "pb_Recherche";
-            this.pb_Recherche.Size = new System.Drawing.Size(290, 147);
-            this.pb_Recherche.TabIndex = 4;
-            this.pb_Recherche.TabStop = false;
-            // 
-            // btn_Jouer
-            // 
-            this.btn_Jouer.Location = new System.Drawing.Point(786, 304);
-            this.btn_Jouer.Name = "btn_Jouer";
-            this.btn_Jouer.Size = new System.Drawing.Size(290, 116);
-            this.btn_Jouer.TabIndex = 5;
-            this.btn_Jouer.Text = "Jouer";
-            this.btn_Jouer.UseVisualStyleBackColor = true;
-            this.btn_Jouer.Click += new System.EventHandler(this.btn_Jouer_Click);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Location = new System.Drawing.Point(534, 194);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(171, 183);
-            this.pictureBox5.TabIndex = 4;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Location = new System.Drawing.Point(357, 194);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(171, 183);
-            this.pictureBox6.TabIndex = 5;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Location = new System.Drawing.Point(180, 194);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(171, 183);
-            this.pictureBox7.TabIndex = 6;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Location = new System.Drawing.Point(3, 194);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(171, 183);
-            this.pictureBox8.TabIndex = 7;
-            this.pictureBox8.TabStop = false;
+            this.bp_retourne.Location = new System.Drawing.Point(258, 322);
+            this.bp_retourne.Name = "bp_retourne";
+            this.bp_retourne.Size = new System.Drawing.Size(150, 39);
+            this.bp_retourne.TabIndex = 3;
+            this.bp_retourne.Text = "Retourner";
+            this.bp_retourne.UseVisualStyleBackColor = true;
+            this.bp_retourne.Click += new System.EventHandler(this.bp_retourne_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1100, 546);
-            this.Controls.Add(this.btn_Jouer);
-            this.Controls.Add(this.pb_Recherche);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.bp_retourne);
+            this.Controls.Add(this.button_distribuer);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -226,11 +182,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Recherche)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -242,13 +193,9 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button_distribuer;
         private System.Windows.Forms.ImageList ilSabotDeCartes;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pb_Recherche;
-        private System.Windows.Forms.Button btn_Jouer;
+        private System.Windows.Forms.Button bp_retourne;
     }
 }
 

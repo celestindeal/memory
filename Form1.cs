@@ -109,10 +109,5 @@ namespace meory
              
             }
         }
-
-        private void btn_Jouer_Click(object sender, EventArgs e)
-        {
-            bp_retourne_Click(sender,e);
-        }
     }
 }
