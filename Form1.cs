@@ -16,8 +16,7 @@ namespace meory
 {
     public partial class Form1 : Form
     {
-        int nbCartesDansSabot; // Nombre de cartes dans le sabot (en fait nombre
-                               // d'images dans le réservoir)
+        int nbCartesDansSabot; // Nombre de cartes dans le sabot (en fait nombre d'images dans le réservoir)
         int nbCartesSurTapis; // Nombre de cartes sur le tapis
 
 
