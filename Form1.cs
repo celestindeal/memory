@@ -97,24 +97,17 @@ namespace meory
             Distribution_Aleatoire();
         }
 
-        private void btn_Test(object sender, EventArgs e)
-        {
-            // On utilise la LotoMachine pour générer une série aléatoire
-            // On fixe à 49 le nombre maxi que retourne la machine
-            LotoMachine hasard = new LotoMachine(10);
-            // On veut une série de 6 numéros distincts parmi 49 (comme quand on joue au loto)
-            int[] tirageLoto = hasard.TirageAleatoire(6, false);
-            // false veut dire pas de doublon : une fois qu'une boule est sortie,
-            // elle ne peut pas sortir à nouveau ;-)
-            // La série d'entiers retournée par la LotoMachine correspond au loto
-            // affiché sur votre écran TV ce soir...
-            string grilleLoto = "* ";
-            for (int i = 1; i <= 6; i++)
-            {
-                grilleLoto = grilleLoto + tirageLoto[i] + " * ";
-            }
-            MessageBox.Show(grilleLoto, "Tirage du LOTO ce jour !");
 
+        private void bp_retourne_Click(object sender, EventArgs e)
+        {
+            PictureBox carte;
+            int i_carte = 0;
+            foreach (Control ctrl in tableLayoutPanel1.Controls)
+            {
+                carte = (PictureBox)ctrl;
+                carte.Image = ilSabotDeCartes.Images[i_carte];
+             
+            }
         }
     }
 }

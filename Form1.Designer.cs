@@ -37,6 +37,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button_distribuer = new System.Windows.Forms.Button();
             this.ilSabotDeCartes = new System.Windows.Forms.ImageList(this.components);
+            this.bp_retourne = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -156,11 +157,22 @@
             this.ilSabotDeCartes.Images.SetKeyName(40, "Taureau.jpg");
             this.ilSabotDeCartes.Images.SetKeyName(41, "Vache.jpg");
             // 
+            // bp_retourne
+            // 
+            this.bp_retourne.Location = new System.Drawing.Point(258, 322);
+            this.bp_retourne.Name = "bp_retourne";
+            this.bp_retourne.Size = new System.Drawing.Size(150, 39);
+            this.bp_retourne.TabIndex = 3;
+            this.bp_retourne.Text = "Retourner";
+            this.bp_retourne.UseVisualStyleBackColor = true;
+            this.bp_retourne.Click += new System.EventHandler(this.bp_retourne_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.bp_retourne);
             this.Controls.Add(this.button_distribuer);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
@@ -183,6 +195,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button_distribuer;
         private System.Windows.Forms.ImageList ilSabotDeCartes;
+        private System.Windows.Forms.Button bp_retourne;
     }
 }
 
