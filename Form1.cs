@@ -89,7 +89,7 @@ namespace meory
             {
                 photo = (PictureBox)ctrl;
                 photo.Image = ilSabotDeCartes.Images[tImagesCartes[numero]];
-                numero++
+                numero++;
             }
         }
 
