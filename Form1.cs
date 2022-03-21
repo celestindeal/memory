@@ -69,32 +69,28 @@ namespace meory
 
         private void Distribution_Aleatoire()
         {   
+            // on init toutes les variables 
             carte.Clear();
             LotoMachine hasard = new LotoMachine(40);
             int[] tImagesCartes = hasard.TirageAleatoire(nbCartesSurTapis, false);
+            // on crer une list de nombre de la taille du tapis avec doublons 
             for (int i_carte = 1; i_carte < (nbCartesSurTapis/2)+1; i_carte++)
             {
                 carte.Add(tImagesCartes[i_carte]);
                 carte.Add(tImagesCartes[i_carte]);
-
-                // carte.Add(ilSabotDeCartes.Images[tImagesCartes[i_carte]]);
             }
-
+            // on melange non chiffres 
             tImagesCartes = carte.OrderBy(n => Guid.NewGuid()).ToArray();
             
-            
+            // on affecte les photos au tapis 
             PictureBox photo;
             int numero = 0;
             foreach (Control ctrl in tableLayoutPanel1.Controls)
             {
                 photo = (PictureBox)ctrl;
                 photo.Image = ilSabotDeCartes.Images[tImagesCartes[numero]];
-                numero++;
-
+                numero++
             }
-
-
-
         }
 
         private void btn_Distribuer(object sender, EventArgs e)
