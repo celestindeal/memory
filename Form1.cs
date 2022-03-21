@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//importer le 'pakage' pour avoir des nombres aléatoires
-using System.Windows.Forms;
+//importer le 'pakage' pour avoir des nombres 
 using dllLoto;
+
 
 namespace meory
 {
@@ -19,6 +19,7 @@ namespace meory
         int nbCartesDansSabot; // Nombre de cartes dans le sabot (en fait nombre
                                // d'images dans le réservoir)
         int nbCartesSurTapis; // Nombre de cartes sur le tapis
+        List<int> carte = new List<int>();     //list de carte a trouver
 
 
         public Form1()
@@ -67,21 +68,33 @@ namespace meory
         }
 
         private void Distribution_Aleatoire()
-        {
-            LotoMachine hasard = new LotoMachine(10);
+        {   
+            carte.Clear();
+            LotoMachine hasard = new LotoMachine(40);
             int[] tImagesCartes = hasard.TirageAleatoire(nbCartesSurTapis, false);
-            // La série d'entiers retournée par la LotoMachine correspondra
-            // aux indices des cartes dans le "sabot"
-            // Affectation des images aux picturebox
-            PictureBox carte;
-            int i_image;
-            for (int i_carte = 0; i_carte < nbCartesSurTapis; i_carte++)
+            for (int i_carte = 1; i_carte < (nbCartesSurTapis/2)+1; i_carte++)
             {
-                carte = (PictureBox)tableLayoutPanel1.Controls[i_carte];
-                i_image = tImagesCartes[i_carte + 1]; // i_carte + 1 à cause
-                                                      // des pbs d'indices
-                carte.Image = ilSabotDeCartes.Images[i_image];
+                carte.Add(tImagesCartes[i_carte]);
+                carte.Add(tImagesCartes[i_carte]);
+
+                // carte.Add(ilSabotDeCartes.Images[tImagesCartes[i_carte]]);
             }
+
+            tImagesCartes = carte.OrderBy(n => Guid.NewGuid()).ToArray();
+            
+            
+            PictureBox photo;
+            int numero = 0;
+            foreach (Control ctrl in tableLayoutPanel1.Controls)
+            {
+                photo = (PictureBox)ctrl;
+                photo.Image = ilSabotDeCartes.Images[tImagesCartes[numero]];
+                numero++;
+
+            }
+
+
+
         }
 
         private void btn_Distribuer(object sender, EventArgs e)
@@ -112,7 +125,11 @@ namespace meory
 
         private void btn_Jouer_Click(object sender, EventArgs e)
         {
-            bp_retourne_Click(sender,e);
+            bp_retourne_Click(sender,e); // affihcer les carte retourner 
+            nbCartesDansSabot = ilSabotDeCartes.Images.Count - 1;
+            nbCartesSurTapis = tableLayoutPanel1.Controls.Count;
+            Distribution_Aleatoire();    // avoir la liste des cartes
+
         }
     }
 }
