@@ -27,44 +27,45 @@ namespace meory
             InitializeComponent();
         }
 
+        private void dite_merci(object sender, EventArgs e, int numero_carte)
+        {
+            Control ctrl = tableLayoutPanel1.Controls[numero_carte];
+            PictureBox photo;
+            photo = (PictureBox)ctrl;
+            photo.Image = ilSabotDeCartes.Images[carte[numero_carte]];
+            if(sender.GetType() != typeof(PictureBox))
+            {
+                return;
+            }
+            PictureBox thisBox = (PictureBox)sender;
+            Guid id_de_l_image = thisBox.Image.RawFormat.Guid;
+            Guid id_image_cache = ilSabotDeCartes.Images[0].RawFormat.Guid;
+
+            if ( id_de_l_image.CompareTo(id_image_cache) == 0)
+            {
+                Console.WriteLine("carte 0 on affiche la bonne carte");
+            }
+
+         }
+
         private void pb_01(object sender, EventArgs e)
         {
-            
+            dite_merci (sender, e, 7);
         }
 
         private void pb_02(object sender, EventArgs e)
         {
-
+            dite_merci(sender, e, 6);
         }
 
         private void pb_03(object sender, EventArgs e)
         {
-
+            dite_merci(sender, e, 5);
         }
 
         private void pb_04(object sender, EventArgs e)
         {
-
-        }
-
-        private void pb_05(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pb_06(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pb_07(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pb_08(object sender, EventArgs e)
-        {
-
+            dite_merci(sender, e, 4);
         }
 
         private void Distribution_Aleatoire()
@@ -81,16 +82,20 @@ namespace meory
             }
             // on melange non chiffres 
             tImagesCartes = carte.OrderBy(n => Guid.NewGuid()).ToArray();
-            
+            carte = tImagesCartes.ToList();
+
+
             // on affecte les photos au tapis 
-            PictureBox photo;
-            int numero = 0;
-            foreach (Control ctrl in tableLayoutPanel1.Controls)
-            {
-                photo = (PictureBox)ctrl;
-                photo.Image = ilSabotDeCartes.Images[tImagesCartes[numero]];
-                numero++;
-            }
+
+            /*      PictureBox photo;
+                  int numero = 0;
+                  foreach (Control ctrl in tableLayoutPanel1.Controls)
+                  {
+                      photo = (PictureBox)ctrl;
+                      photo.Image = ilSabotDeCartes.Images[tImagesCartes[numero]];
+                      numero++;
+                  }
+            */
         }
 
         private void btn_Distribuer(object sender, EventArgs e)
@@ -121,11 +126,37 @@ namespace meory
 
         private void btn_Jouer_Click(object sender, EventArgs e)
         {
-            bp_retourne_Click(sender,e); // affihcer les carte retourner 
+            
             nbCartesDansSabot = ilSabotDeCartes.Images.Count - 1;
             nbCartesSurTapis = tableLayoutPanel1.Controls.Count;
             Distribution_Aleatoire();    // avoir la liste des cartes
+            bp_retourne_Click(sender,e); // affihcer les carte retourner 
 
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            dite_merci(sender, e, 3);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            dite_merci(sender, e, 2);
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            dite_merci(sender, e, 1);
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            dite_merci(sender, e, 0);
         }
     }
 }
