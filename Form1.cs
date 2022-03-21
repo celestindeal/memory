@@ -16,24 +16,101 @@ namespace meory
 {
     public partial class Form1 : Form
     {
-        int nbCartesDansSabot; // Nombre de cartes dans le sabot (en fait nombre
-                               // d'images dans le réservoir)
+        int nbCartesDansSabot; // Nombre de cartes dans le sabot (en fait nombre d'images dans le réservoir)
         int nbCartesSurTapis; // Nombre de cartes sur le tapis
         List<int> carte = new List<int>();     //list de carte a trouver
+
+        bool premier_tour = true; // nombre de carte retourner
+        Guid cuid_image_retourner =new Guid();
+        int numero_carte_routener = 100; // c'est la première carte retourner  j'initialiser à 100 car c'est un nombre impossible et il y as une vérification sur cette varibale
 
 
         public Form1()
         {
             InitializeComponent();
         }
+        public void wait(int milliseconds)
+        {
+            var timer1 = new System.Windows.Forms.Timer();
+            if (milliseconds == 0 || milliseconds < 0) return;
+
+            // Console.WriteLine("start wait timer");
+            timer1.Interval = milliseconds;
+            timer1.Enabled = true;
+            timer1.Start();
+
+            timer1.Tick += (s, e) =>
+            {
+                timer1.Enabled = false;
+                timer1.Stop();
+                // Console.WriteLine("stop wait timer");
+            };
+
+            while (timer1.Enabled)
+            {
+                Application.DoEvents();
+            }
+        }
 
         private void dite_merci(object sender, EventArgs e, int numero_carte)
         {
+            // liste de verification avant actions
+            if (numero_carte_routener == numero_carte)
+            {
+                // on peux faire un petit message d'erreur 
+                return;
+            }
+            void perdu_retourner_les_carte()
+            {
+                Console.WriteLine("J'ai fini d'attendre");
+                Control ctrl1 = tableLayoutPanel1.Controls[numero_carte];
+                PictureBox photo1;
+                photo1 = (PictureBox)ctrl1;
+                photo1.Image = ilSabotDeCartes.Images[0];
+                Control ctrl2 = tableLayoutPanel1.Controls[numero_carte_routener];
+                PictureBox photo2;
+                photo2 = (PictureBox)ctrl2;
+                photo2.Image = ilSabotDeCartes.Images[0];
+            }
             Control ctrl = tableLayoutPanel1.Controls[numero_carte];
             PictureBox photo;
             photo = (PictureBox)ctrl;
             photo.Image = ilSabotDeCartes.Images[carte[numero_carte]];
-            if(sender.GetType() != typeof(PictureBox))
+            if (premier_tour) {
+                // si nous avons à carte retourner on retourne la premier et un l'enregistre pour faire la comparaisson par la suite
+                
+                // on sauvegarde la carte 
+                cuid_image_retourner = ilSabotDeCartes.Images[carte[numero_carte]].RawFormat.Guid;
+                numero_carte_routener = numero_carte;
+                premier_tour = false ;
+            } else {
+                // on retourner la carte on fait les comparaision puis on attend 1 second avant de retourner les deux cartes
+                Guid yes = ilSabotDeCartes.Images[carte[numero_carte]].RawFormat.Guid;
+                Console.WriteLine(cuid_image_retourner);
+                if (cuid_image_retourner.CompareTo(yes) == 1)
+                {
+                    // la paire est trouver il faut compter les points et regarde si la partie est terminer 
+                    Console.WriteLine("bien joué tu as trouvber une peire ");
+                    return;
+                }
+                else
+                {
+                    // perdu relance le tour 
+                    wait(1000);
+                    perdu_retourner_les_carte();
+
+                }
+               
+
+                //netoyer les variable pour les prochain tours 
+                numero_carte_routener = 100;
+                premier_tour = true;
+                cuid_image_retourner= new Guid();// attention ce n'ai pas idéal trouver une solution pour netoyer la variable 
+            }
+
+           
+
+            /*if (sender.GetType() != typeof(PictureBox))
             {
                 return;
             }
@@ -45,28 +122,10 @@ namespace meory
             {
                 Console.WriteLine("carte 0 on affiche la bonne carte");
             }
-
+            */
          }
 
-        private void pb_01(object sender, EventArgs e)
-        {
-            dite_merci (sender, e, 7);
-        }
-
-        private void pb_02(object sender, EventArgs e)
-        {
-            dite_merci(sender, e, 6);
-        }
-
-        private void pb_03(object sender, EventArgs e)
-        {
-            dite_merci(sender, e, 5);
-        }
-
-        private void pb_04(object sender, EventArgs e)
-        {
-            dite_merci(sender, e, 4);
-        }
+      
 
         private void Distribution_Aleatoire()
         {   
@@ -83,34 +142,7 @@ namespace meory
             // on melange non chiffres 
             tImagesCartes = carte.OrderBy(n => Guid.NewGuid()).ToArray();
             carte = tImagesCartes.ToList();
-
-
-            // on affecte les photos au tapis 
-
-            /*      PictureBox photo;
-                  int numero = 0;
-                  foreach (Control ctrl in tableLayoutPanel1.Controls)
-                  {
-                      photo = (PictureBox)ctrl;
-                      photo.Image = ilSabotDeCartes.Images[tImagesCartes[numero]];
-                      numero++;
-                  }
-            */
         }
-
-        private void btn_Distribuer(object sender, EventArgs e)
-        {
-            // On récupère le nombre d'images dans le réservoir :
-            nbCartesDansSabot = ilSabotDeCartes.Images.Count - 1;
-    
-            // s’il y a 40 images au total *
-            // On récupère également le nombre de cartes à distribuées sur la tapis
-            // autrement dit le nombre de contrôles présents sur le conteneur
-            nbCartesSurTapis = tableLayoutPanel1.Controls.Count;
-            // On effectue la distribution (aléatoire) proprement dite
-            Distribution_Aleatoire();
-        }
-
 
         private void bp_retourne_Click(object sender, EventArgs e)
         {
@@ -133,7 +165,25 @@ namespace meory
             bp_retourne_Click(sender,e); // affihcer les carte retourner 
 
         }
+        private void pb_01(object sender, EventArgs e)
+        {
+            dite_merci (sender, e, 7);
+        }
 
+        private void pb_02(object sender, EventArgs e)
+        {
+            dite_merci(sender, e, 6);
+        }
+
+        private void pb_03(object sender, EventArgs e)
+        {
+            dite_merci(sender, e, 5);
+        }
+
+        private void pb_04(object sender, EventArgs e)
+        {
+            dite_merci(sender, e, 4);
+        }
         private void pictureBox5_Click(object sender, EventArgs e)
         {
             dite_merci(sender, e, 3);
