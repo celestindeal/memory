@@ -92,6 +92,10 @@ namespace meory
                     if (nombre_de_paire_a_trouver == 0)
                     {
                         MessageBox.Show("Tu as gagner bravo");
+                        nbCartesDansSabot = ilSabotDeCartes.Images.Count - 1;
+                        nbCartesSurTapis = tableLayoutPanel1.Controls.Count;
+                        Distribution_Aleatoire();    // avoir la liste des cartes
+                        bp_retourne_Click(sender, e); // affihcer les carte retourner 
                     }
                 }
                 else
@@ -173,12 +177,6 @@ namespace meory
         {
             dite_merci(sender, e, 3);
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox6_Click(object sender, EventArgs e)
         {
             dite_merci(sender, e, 2);
