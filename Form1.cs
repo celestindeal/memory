@@ -62,7 +62,6 @@ namespace meory
             }
             void perdu_retourner_les_carte()
             {
-                Console.WriteLine("J'ai fini d'attendre");
                 Control ctrl1 = tableLayoutPanel1.Controls[numero_carte];
                 PictureBox photo1;
                 photo1 = (PictureBox)ctrl1;
@@ -89,7 +88,11 @@ namespace meory
                 if (carte[numero_carte_routener] == carte[numero_carte])
                 {
                     // la paire est trouver il faut compter les points et regarde si la partie est terminer 
-                    Console.WriteLine("bien joué tu as trouvber une peire ");
+                    nombre_de_paire_a_trouver--;
+                    if (nombre_de_paire_a_trouver == 0)
+                    {
+                        MessageBox.Show("Tu as gagner bravo");
+                    }
                 }
                 else
                 {
@@ -121,6 +124,9 @@ namespace meory
             // on melange non chiffres 
             tImagesCartes = carte.OrderBy(n => Guid.NewGuid()).ToArray();
             carte = tImagesCartes.ToList();
+
+            // initialiser les valeurs pour la partie 
+            nombre_de_paire_a_trouver = nbCartesSurTapis / 2;
         }
 
         private void bp_retourne_Click(object sender, EventArgs e)
