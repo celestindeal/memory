@@ -23,3 +23,4 @@ C:\Users\Epulapp\Desktop\si\memory\bin\Debug\dllLoto.dll
 C:\Users\Epulapp\Desktop\si\memory\obj\Debug\meory.csproj.CopyComplete
 C:\Users\Epulapp\Desktop\si\memory\obj\Debug\meory.exe
 C:\Users\Epulapp\Desktop\si\memory\obj\Debug\meory.pdb
+C:\Users\Epulapp\Desktop\si\memory\obj\Debug\meory.csproj.AssemblyReference.cache

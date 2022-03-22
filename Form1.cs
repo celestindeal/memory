@@ -21,9 +21,8 @@ namespace meory
         List<int> carte = new List<int>();     //list de carte a trouver
 
         bool premier_tour = true; // nombre de carte retourner
-        Guid cuid_image_retourner =new Guid();
         int numero_carte_routener = 100; // c'est la première carte retourner  j'initialiser à 100 car c'est un nombre impossible et il y as une vérification sur cette varibale
-
+        int nombre_de_paire_a_trouver = 100; // cette variable nous permet de savoir quand l'utilisateur a fini le jeux 
 
         public Form1()
         {
@@ -55,9 +54,10 @@ namespace meory
         private void dite_merci(object sender, EventArgs e, int numero_carte)
         {
             // liste de verification avant actions
-            if (numero_carte_routener == numero_carte)
+            if (numero_carte_routener == numero_carte) // quand on appuis plussieur foois sur la même carte
             {
                 // on peux faire un petit message d'erreur 
+                MessageBox.Show("Il faut cliquer sur deux cases différentes !");
                 return;
             }
             void perdu_retourner_les_carte()
@@ -78,51 +78,30 @@ namespace meory
             photo.Image = ilSabotDeCartes.Images[carte[numero_carte]];
             if (premier_tour) {
                 // si nous avons à carte retourner on retourne la premier et un l'enregistre pour faire la comparaisson par la suite
-                
-                // on sauvegarde la carte 
-                cuid_image_retourner = ilSabotDeCartes.Images[carte[numero_carte]].RawFormat.Guid;
+
+         
                 numero_carte_routener = numero_carte;
                 premier_tour = false ;
             } else {
                 // on retourner la carte on fait les comparaision puis on attend 1 second avant de retourner les deux cartes
-                Guid yes = ilSabotDeCartes.Images[carte[numero_carte]].RawFormat.Guid;
-                Console.WriteLine(cuid_image_retourner);
-                if (cuid_image_retourner.CompareTo(yes) == 1)
+               
+
+                if (carte[numero_carte_routener] == carte[numero_carte])
                 {
                     // la paire est trouver il faut compter les points et regarde si la partie est terminer 
                     Console.WriteLine("bien joué tu as trouvber une peire ");
-                    return;
                 }
                 else
                 {
                     // perdu relance le tour 
                     wait(1000);
                     perdu_retourner_les_carte();
-
                 }
-               
-
                 //netoyer les variable pour les prochain tours 
                 numero_carte_routener = 100;
                 premier_tour = true;
-                cuid_image_retourner= new Guid();// attention ce n'ai pas idéal trouver une solution pour netoyer la variable 
             }
 
-           
-
-            /*if (sender.GetType() != typeof(PictureBox))
-            {
-                return;
-            }
-            PictureBox thisBox = (PictureBox)sender;
-            Guid id_de_l_image = thisBox.Image.RawFormat.Guid;
-            Guid id_image_cache = ilSabotDeCartes.Images[0].RawFormat.Guid;
-
-            if ( id_de_l_image.CompareTo(id_image_cache) == 0)
-            {
-                Console.WriteLine("carte 0 on affiche la bonne carte");
-            }
-            */
          }
 
       
