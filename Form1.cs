@@ -23,7 +23,7 @@ namespace meory
         bool premier_tour = true; // nombre de carte retourner
         int numero_carte_routener = 100; // c'est la première carte retourner  j'initialiser à 100 car c'est un nombre impossible et il y as une vérification sur cette varibale
         int nombre_de_paire_a_trouver = 100; // cette variable nous permet de savoir quand l'utilisateur a fini le jeux 
-
+        int pointPartie = 0;
         public Form1()
         {
             InitializeComponent();
@@ -51,7 +51,7 @@ namespace meory
             }
         }
 
-        private void dite_merci(object sender, EventArgs e, int numero_carte)
+        private void veriaficationCarte(object sender, EventArgs e, int numero_carte)
         {
             // liste de verification avant actions
             if (numero_carte_routener == numero_carte) // quand on appuis plussieur foois sur la même carte
@@ -90,18 +90,21 @@ namespace meory
                 {
                     // la paire est trouver il faut compter les points et regarde si la partie est terminer 
                     nombre_de_paire_a_trouver--;
+                    pointPartie += 10;
                     if (nombre_de_paire_a_trouver == 0)
                     {
-                        MessageBox.Show("Tu as gagner bravo");
+                        MessageBox.Show("Tu as gagner bravo. Tu as "+pointPartie+" points");
                         // on lance la prochaine partie 
                         Distribution_Aleatoire();    // avoir la liste des cartes
                         bp_retourne_Click(sender, e); // affihcer les carte retourner 
+                        pointPartie = 0;
                     }
                 }
                 else
                 {
                     // perdu relance le tour 
                     wait(1000);
+                    pointPartie -= 2;
                     perdu_retourner_les_carte();
                 }
                 //netoyer les variable pour les prochain tours 
@@ -147,7 +150,7 @@ namespace meory
 
         private void btn_Jouer_Click(object sender, EventArgs e)
         {
-            
+            pointPartie = 0;
             nbCartesDansSabot = ilSabotDeCartes.Images.Count - 1;
             nbCartesSurTapis = tableLayoutPanel1.Controls.Count;
             Distribution_Aleatoire();    // avoir la liste des cartes
@@ -156,40 +159,40 @@ namespace meory
         }
         private void pb_01(object sender, EventArgs e)
         {
-            dite_merci (sender, e, 7);
+            veriaficationCarte(sender, e, 7);
         }
 
         private void pb_02(object sender, EventArgs e)
         {
-            dite_merci(sender, e, 6);
+            veriaficationCarte(sender, e, 6);
         }
 
         private void pb_03(object sender, EventArgs e)
         {
-            dite_merci(sender, e, 5);
+            veriaficationCarte(sender, e, 5);
         }
 
         private void pb_04(object sender, EventArgs e)
         {
-            dite_merci(sender, e, 4);
+            veriaficationCarte(sender, e, 4);
         }
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            dite_merci(sender, e, 3);
+            veriaficationCarte(sender, e, 3);
         }
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            dite_merci(sender, e, 2);
+            veriaficationCarte(sender, e, 2);
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            dite_merci(sender, e, 1);
+            veriaficationCarte(sender, e, 1);
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-            dite_merci(sender, e, 0);
+            veriaficationCarte(sender, e, 0);
         }
     }
 }
