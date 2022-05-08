@@ -62,6 +62,7 @@ namespace meory
             }
             void perdu_retourner_les_carte()
             {
+                // on retourne les deux carte que le joueur à séléctionner 
                 Control ctrl1 = tableLayoutPanel1.Controls[numero_carte];
                 PictureBox photo1;
                 photo1 = (PictureBox)ctrl1;
@@ -92,8 +93,7 @@ namespace meory
                     if (nombre_de_paire_a_trouver == 0)
                     {
                         MessageBox.Show("Tu as gagner bravo");
-                        nbCartesDansSabot = ilSabotDeCartes.Images.Count - 1;
-                        nbCartesSurTapis = tableLayoutPanel1.Controls.Count;
+                        // on lance la prochaine partie 
                         Distribution_Aleatoire();    // avoir la liste des cartes
                         bp_retourne_Click(sender, e); // affihcer les carte retourner 
                     }

@@ -24,3 +24,16 @@ C:\Users\Epulapp\Desktop\si\memory\obj\Debug\meory.csproj.CopyComplete
 C:\Users\Epulapp\Desktop\si\memory\obj\Debug\meory.exe
 C:\Users\Epulapp\Desktop\si\memory\obj\Debug\meory.pdb
 C:\Users\Epulapp\Desktop\si\memory\obj\Debug\meory.csproj.AssemblyReference.cache
+C:\Users\Epulapp\Desktop\polytech\si\memory\bin\Debug\meory.exe.config
+C:\Users\Epulapp\Desktop\polytech\si\memory\bin\Debug\meory.exe
+C:\Users\Epulapp\Desktop\polytech\si\memory\bin\Debug\meory.pdb
+C:\Users\Epulapp\Desktop\polytech\si\memory\bin\Debug\dllLoto.dll
+C:\Users\Epulapp\Desktop\polytech\si\memory\obj\Debug\meory.csproj.AssemblyReference.cache
+C:\Users\Epulapp\Desktop\polytech\si\memory\obj\Debug\meory.csproj.SuggestedBindingRedirects.cache
+C:\Users\Epulapp\Desktop\polytech\si\memory\obj\Debug\meory.Form1.resources
+C:\Users\Epulapp\Desktop\polytech\si\memory\obj\Debug\meory.Properties.Resources.resources
+C:\Users\Epulapp\Desktop\polytech\si\memory\obj\Debug\meory.csproj.GenerateResource.cache
+C:\Users\Epulapp\Desktop\polytech\si\memory\obj\Debug\meory.csproj.CoreCompileInputs.cache
+C:\Users\Epulapp\Desktop\polytech\si\memory\obj\Debug\meory.csproj.CopyComplete
+C:\Users\Epulapp\Desktop\polytech\si\memory\obj\Debug\meory.exe
+C:\Users\Epulapp\Desktop\polytech\si\memory\obj\Debug\meory.pdb
